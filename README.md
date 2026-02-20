@@ -8,7 +8,7 @@
 
 ## What is this?
 
-AIVoterGuide is an open-source, AI-powered ballot guide that helps everyday voters understand what they're actually deciding when they vote.
+AIVoterGuide is an open-source, AI-powered ballot guide that helps everyday voters understand propositions and how they impact that voter and their community.
 
 Ballot propositions are written by lawyers in legal jargon. AIVoterGuide translates them into plain English — explaining what each measure does and how it impact individual voters and their communities. It presents all sides neutrally and never tells users how to vote.
 
