@@ -102,7 +102,7 @@ Then open `index.html` in a browser or serve it as a static file.
 
 ## License
 
-MIT — free to use, adapt, and deploy for nonpartisan civic purposes.
+Apache 2.0 
 
 ---
 
