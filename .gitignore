@@ -1,0 +1,22 @@
+# Environment variables - never commit API keys
+.env
+.env.local
+.env.*.local
+
+# Google Cloud SDK - too large and not project code
+google-cloud-sdk/
+*.tar.gz
+
+# Claude Code local settings
+.claude/
+
+# Internal documents
+aivoterguide_grants.txt
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

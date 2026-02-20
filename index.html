@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>King County February 2026 Ballot Measure Guide</title>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0DJGQ4C0C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q0DJGQ4C0C');
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #FBF5F1;
+      min-height: 100vh;
+      color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0;
+      border-bottom: 1px solid #e0d6cf;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .chat-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 200px);
+      min-height: 500px;
+      border: 1px solid #e0d6cf;
+    }
+
+    .chat-header {
+      background: #f5ebe5;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e0d6cf;
+    }
+
+    .chat-header h2 {
+      font-size: 1rem;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #4caf50;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .message.user {
+      background: #1a1a1a;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message.assistant {
+      background: #f5ebe5;
+      color: #1a1a1a;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .message.assistant strong {
+      color: #8b5a5a;
+    }
+
+    .message.system {
+      background: #f0e6e0;
+      color: #666;
+      align-self: center;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .input-area {
+      padding: 15px 20px;
+      background: #faf6f3;
+      border-top: 1px solid #e0d6cf;
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-area input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #d0c4bc;
+      border-radius: 8px;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-area input:focus {
+      border-color: #8b5a5a;
+    }
+
+    .input-area input::placeholder {
+      color: #999;
+    }
+
+    .input-area button {
+      padding: 12px 24px;
+      background: #1a1a1a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .input-area button:hover {
+      background: #333;
+    }
+
+    .input-area button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .suggestions {
+      padding: 10px 20px;
+      background: #faf6f3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .suggestion {
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid #d0c4bc;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .helper-text {
+      padding: 15px 20px;
+      background: #faf6f3;
+      border-top: 1px solid #e0d6cf;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .helper-text p {
+      margin: 0 0 5px 0;
+    }
+
+    .helper-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .helper-text .privacy-note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: #f5ebe5;
+      border-radius: 12px;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: #c0a8a0;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+
+    .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    .api-key-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .api-key-modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 15px;
+      color: #1a1a1a;
+    }
+
+    .modal-content p {
+      margin-bottom: 20px;
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d0c4bc;
+      border-radius: 8px;
+      background: #fff;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 12px;
+      background: #1a1a1a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .modal-content .skip-btn {
+      background: transparent;
+      border: 1px solid #d0c4bc;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .info-section {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e0d6cf;
+    }
+
+    .info-section h3 {
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .info-section p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .district-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .district-item {
+      padding: 10px;
+      background: #f5ebe5;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .feedback-section {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e0d6cf;
+    }
+
+    .feedback-section h3 {
+      margin-bottom: 10px;
+      color: #1a1a1a;
+    }
+
+    .feedback-section p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .feedback-btn {
+      padding: 12px 24px;
+      background: #fff;
+      color: #1a1a1a;
+      border: 1px solid #d0c4bc;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .feedback-btn:hover {
+      background: #f5ebe5;
+      border-color: #8b5a5a;
+    }
+
+    .feedback-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .feedback-modal.hidden {
+      display: none;
+    }
+
+    .feedback-modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .feedback-modal-content h3 {
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d0c4bc;
+      border-radius: 8px;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #8b5a5a;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-group select option {
+      background: #fff;
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .form-buttons button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .submit-feedback-btn {
+      background: #1a1a1a;
+      color: white;
+      width: 100%;
+      padding: 14px 24px;
+    }
+
+    .submit-feedback-btn:hover {
+      background: #333;
+    }
+
+    .cancel-btn {
+      background: transparent;
+      border: 1px solid #d0c4bc !important;
+      color: #666;
+    }
+
+    .cancel-btn:hover {
+      background: #f5ebe5;
+    }
+
+    .required {
+      color: #c45a5a;
+    }
+
+    .success-msg {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .success-msg h4 {
+      color: #5a8b5a;
+      margin-bottom: 10px;
+    }
+
+    .success-msg p {
+      color: #666;
+    }
+
+    /* Layout with sidebar */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 200px;
+      background: #fff;
+      border-right: 1px solid #e0d6cf;
+      padding: 20px 0;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 10px 20px 30px;
+      border-bottom: 1px solid #e0d6cf;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-header h2 {
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    .nav-tabs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      color: #666;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-tab:hover {
+      background: #faf6f3;
+      color: #1a1a1a;
+    }
+
+    .nav-tab.active {
+      background: #f5ebe5;
+      color: #1a1a1a;
+      border-left-color: #1a1a1a;
+      font-weight: 500;
+    }
+
+    .main-content {
+      flex: 1;
+      margin-left: 200px;
+      padding: 20px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #e0d6cf;
+      }
+
+      .nav-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 10px;
+      }
+
+      .nav-tab {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 10px 15px;
+      }
+
+      .nav-tab.active {
+        border-left-color: transparent;
+        border-bottom-color: #1a1a1a;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .layout {
+        flex-direction: column;
+      }
+
+      .sidebar-header {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <h2>King County Ballot Guide</h2>
+      </div>
+      <ul class="nav-tabs">
+        <li class="nav-tab active" onclick="showTab('home')">Home</li>
+        <li class="nav-tab" onclick="showTab('about')">About</li>
+        <li class="nav-tab" onclick="showTab('feedback')">Feedback</li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <!-- HOME TAB -->
+      <div id="home" class="tab-content active">
+        <div class="container">
+    <header>
+      <h1>King County February 2026 Special Election</h1>
+      <p class="subtitle">Ballot Measure Information Assistant</p>
+    </header>
+
+    <div class="chat-container">
+      <div class="chat-header">
+        <h2>
+          <span class="status-dot"></span>
+          Ballot Measure Assistant
+        </h2>
+      </div>
+
+      <div class="messages" id="messages">
+        <div class="message assistant">
+          Welcome! What district are you in? If you're not sure, that's okay — I can help you figure it out. I can explain the ballot measures in the King County February 2026 Special Election, including how they may affect you and your community, arguments for and against each measure, and more.
+        </div>
+      </div>
+
+      <div class="helper-text">
+        <p><strong>Learn about the February 10th King County special election propositions.</strong></p>
+        <p>Ask questions about the measures and the potential impacts of voting in favor or against them.</p>
+        <p class="privacy-note">No personal data is stored.</p>
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="userInput" placeholder="Explain how Prop 1 impacts me if my home's assessed value is $700K." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()" id="sendBtn">Send</button>
+      </div>
+    </div>
+        </div>
+      </div>
+
+      <!-- ABOUT TAB -->
+      <div id="about" class="tab-content">
+        <div class="container">
+          <header>
+            <h1>About This Guide</h1>
+          </header>
+
+          <div class="info-section">
+            <h3>What is this?</h3>
+            <p>This is an AI-powered assistant designed to help King County voters better understand the ballot measures in the February 10, 2026 Special Election.</p>
+            <p>Ballot propositions are often written in dense or legalistic language, making it hard to understand what a "yes" or "no" vote means. Even when the language is clear, understanding the real-world impact on residents, households, and communities can still be difficult.</p>
+            <p>This tool provides neutral information about each proposition and can include local or personal implications based on information users choose to share, such as household size or a property's assessed value.</p>
+            <p>This assistant is a pilot program. Feedback from this pilot will be used to inform and improve voter education tools ahead of the November 2026 midterm elections.</p>
+          </div>
+
+          <div class="info-section">
+            <h3>Why not use a general AI provider (ChatGPT, Gemini, Claude)?</h3>
+            <p>This guide serves as a model for how AI can support democracy by making local elections more understandable, accessible, and trustworthy. We encourage you to use the tools you're most comfortable with. While general AI is a powerful tool, it is prone to "hallucinations"—confidently stating facts that are outdated or incorrect. The King County Voter Guide is built specifically for election integrity. We use grounded AI technology that only pulls information from official, verified sources and include citations. To ensure total transparency, we publish the prompt and source data. Users are also encouraged to provide feedback to improve the experience.</p>
+          </div>
+
+          <div class="info-section">
+            <h3>Districts Covered</h3>
+            <p>This assistant has information on all 24 ballot measures from 13 school districts:</p>
+            <div class="district-list">
+              <div class="district-item">Bellevue SD 405 (2 props)</div>
+              <div class="district-item">Enumclaw SD 216 (2 props)</div>
+              <div class="district-item">Federal Way SD 210 (1 prop)</div>
+              <div class="district-item">Issaquah SD 411 (3 props)</div>
+              <div class="district-item">Lake Washington SD 414 (2 props)</div>
+              <div class="district-item">Mercer Island SD 400 (1 prop)</div>
+              <div class="district-item">Northshore SD 417 (3 props)</div>
+              <div class="district-item">Riverview SD 407 (3 props)</div>
+              <div class="district-item">Shoreline SD 412 (2 props)</div>
+              <div class="district-item">Snoqualmie Valley SD 410 (2 props)</div>
+              <div class="district-item">Tahoma SD 409 (2 props)</div>
+              <div class="district-item">Vashon Island SD 402 (1 prop)</div>
+            </div>
+          </div>
+
+          <div class="info-section">
+            <h3>Data Sources</h3>
+            <p>All ballot measure information is sourced from official King County Elections materials, including the voters' pamphlet and measure resolution texts.</p>
+            <ul style="margin-top: 12px; padding-left: 20px; list-style: disc; color: #666; font-size: 0.9rem; line-height: 1.8;">
+              <li><a href="https://info.kingcounty.gov/kcelections/Vote/contests/ballotmeasures.aspx?eid=52" target="_blank" rel="noopener" style="color: #8b5a5a; text-decoration: underline;">Main ballot measures page</a></li>
+              <li><a href="https://info.kingcounty.gov/kcelections/Vote/contests/ballotmeasures.aspx?lang=en-US&cid={ID}&groupname=School" target="_blank" rel="noopener" style="color: #8b5a5a; text-decoration: underline;">Individual measure pages</a></li>
+              <li><a href="https://kingcounty.gov/en/dept/elections" target="_blank" rel="noopener" style="color: #8b5a5a; text-decoration: underline;">King County Elections homepage</a></li>
+              <li><a href="https://voter.votewa.gov" target="_blank" rel="noopener" style="color: #8b5a5a; text-decoration: underline;">Voter registration</a></li>
+            </ul>
+          </div>
+
+          <div class="info-section">
+            <h3>Privacy</h3>
+            <p>No personal data is stored. Conversations are not saved after you close the page.</p>
+          </div>
+
+          <div class="info-section">
+            <h3>AI Disclosure</h3>
+            <p>This tool uses an artificial intelligence language model to summarize election information. While we aim for accuracy and cite sources where possible, responses may contain errors or omissions. Please verify important details using official election resources.</p>
+            <p>For transparency, the system prompt used by this LLM is available <a href="prompt.txt" target="_blank" style="color: #8b5a5a; text-decoration: underline;">here</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEEDBACK TAB -->
+      <div id="feedback" class="tab-content">
+        <div class="container">
+          <header>
+            <h1>Send Feedback</h1>
+            <p class="subtitle">Found an error? Have a suggestion? Let us know.</p>
+          </header>
+
+          <div class="info-section">
+            <form id="feedbackFormInline" action="https://formspree.io/f/mrekkqno" method="POST">
+              <input type="hidden" name="_subject" value="King County Ballot Guide Feedback">
+
+              <div class="form-group">
+                <label for="feedbackNameInline">Name</label>
+                <input type="text" id="feedbackNameInline" name="name" placeholder="Your name (optional)">
+              </div>
+
+              <div class="form-group">
+                <label for="feedbackEmailInline">Email</label>
+                <input type="email" id="feedbackEmailInline" name="email" placeholder="your@email.com (optional)">
+              </div>
+
+              <div class="form-group">
+                <label for="feedbackTypeInline">Feedback Type <span class="required">*</span></label>
+                <select id="feedbackTypeInline" name="feedback_type" required>
+                  <option value="">Select...</option>
+                  <option value="bug">Bug Report</option>
+                  <option value="inaccuracy">Data Inaccuracy</option>
+                  <option value="suggestion">Feature Suggestion</option>
+                  <option value="question">Question</option>
+                  <option value="praise">Positive Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="feedbackDistrictInline">Related District</label>
+                <select id="feedbackDistrictInline" name="district">
+                  <option value="">Not district-specific</option>
+                  <option value="Bellevue SD 405">Bellevue SD 405</option>
+                  <option value="Enumclaw SD 216">Enumclaw SD 216</option>
+                  <option value="Federal Way SD 210">Federal Way SD 210</option>
+                  <option value="Issaquah SD 411">Issaquah SD 411</option>
+                  <option value="Lake Washington SD 414">Lake Washington SD 414</option>
+                  <option value="Mercer Island SD 400">Mercer Island SD 400</option>
+                  <option value="Northshore SD 417">Northshore SD 417</option>
+                  <option value="Riverview SD 407">Riverview SD 407</option>
+                  <option value="Shoreline SD 412">Shoreline SD 412</option>
+                  <option value="Snoqualmie Valley SD 410">Snoqualmie Valley SD 410</option>
+                  <option value="Tahoma SD 409">Tahoma SD 409</option>
+                  <option value="Vashon Island SD 402">Vashon Island SD 402</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="feedbackMessageInline">Your Feedback <span class="required">*</span></label>
+                <textarea id="feedbackMessageInline" name="message" placeholder="Please share your feedback..." required></textarea>
+              </div>
+
+              <button type="submit" class="submit-feedback-btn" id="submitFeedbackBtnInline" style="width: 100%;">Send Feedback</button>
+            </form>
+
+            <div id="feedbackSuccessInline" class="success-msg" style="display: none;">
+              <h4>Thank You!</h4>
+              <p>Your feedback has been sent successfully.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <script src="ballot-data.js"></script>
+  <script>
+    let conversationHistory = [];
+    let systemPromptTemplate = '';
+
+    // Load the system prompt from prompt.txt
+    fetch('prompt.txt')
+      .then(response => response.text())
+      .then(text => {
+        systemPromptTemplate = text;
+        console.log('System prompt loaded from prompt.txt');
+      })
+      .catch(error => {
+        console.error('Failed to load prompt.txt:', error);
+        systemPromptTemplate = 'You are a helpful assistant for King County February 2026 ballot measures.';
+      });
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    function askQuestion(question) {
+      document.getElementById('userInput').value = question;
+      sendMessage();
+    }
+
+    function addMessage(type, content) {
+      const messagesDiv = document.getElementById('messages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${type}`;
+      messageDiv.innerHTML = content;
+      messagesDiv.appendChild(messageDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function showTyping() {
+      const messagesDiv = document.getElementById('messages');
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.id = 'typing';
+      typingDiv.innerHTML = '<span></span><span></span><span></span>';
+      messagesDiv.appendChild(typingDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function hideTyping() {
+      const typing = document.getElementById('typing');
+      if (typing) typing.remove();
+    }
+
+    function formatResponse(text) {
+      // Convert markdown-like formatting to HTML
+      return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color: #8b5a5a; text-decoration: underline;">$1</a>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n- /g, '<br>&bull; ')
+        .replace(/\n/g, '<br>')
+        .replace(/^/, '<p>')
+        .replace(/$/, '</p>');
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const userMessage = input.value.trim();
+      if (!userMessage) return;
+
+      addMessage('user', userMessage);
+      input.value = '';
+      document.getElementById('sendBtn').disabled = true;
+      showTyping();
+
+      try {
+        const response = await getAIResponse(userMessage);
+        hideTyping();
+        addMessage('assistant', formatResponse(response));
+      } catch (error) {
+        hideTyping();
+        addMessage('assistant', `Error: ${error.message}. Please try again.`);
+      }
+
+      document.getElementById('sendBtn').disabled = false;
+    }
+
+    async function getAIResponse(userMessage) {
+      conversationHistory.push({ role: 'user', content: userMessage });
+
+      const systemPrompt = systemPromptTemplate + `
+
+Here is the complete ballot measure data:
+${JSON.stringify(ballotMeasures, null, 2)}`;
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1500,
+          system: systemPrompt,
+          messages: conversationHistory
+        })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error?.message || 'API request failed');
+      }
+
+      const data = await response.json();
+      const assistantMessage = data.content[0].text;
+      conversationHistory.push({ role: 'assistant', content: assistantMessage });
+
+      // Keep conversation history manageable
+      if (conversationHistory.length > 20) {
+        conversationHistory = conversationHistory.slice(-10);
+      }
+
+      return assistantMessage;
+    }
+
+    function getBasicResponse(query) {
+      const q = query.toLowerCase();
+      let results = [];
+
+      // Search by district
+      const districtKeywords = {
+        'bellevue': '405',
+        'enumclaw': '216',
+        'federal way': '210',
+        'issaquah': '411',
+        'lake washington': '414',
+        'mercer island': '400',
+        'northshore': '417',
+        'riverview': '407',
+        'shoreline': '412',
+        'snoqualmie': '410',
+        'tahoma': '409',
+        'vashon': '402'
+      };
+
+      for (const [name, num] of Object.entries(districtKeywords)) {
+        if (q.includes(name)) {
+          results = ballotMeasures.filter(m => m.district.includes(num));
+          break;
+        }
+      }
+
+      // Search for specific propositions
+      const propMatch = q.match(/prop(osition)?\s*(no\.?\s*)?(\d)/i);
+      if (propMatch) {
+        const propNum = propMatch[3];
+        if (results.length > 0) {
+          results = results.filter(m => m.proposition.includes(propNum));
+        } else {
+          results = ballotMeasures.filter(m => m.proposition.includes(propNum));
+        }
+      }
+
+      // Search for opposition/against
+      if (q.includes('against') || q.includes('opposition') || q.includes('oppose')) {
+        if (results.length === 0) results = ballotMeasures;
+
+        if (q.includes('no opposition') || q.includes('no statement')) {
+          results = results.filter(m => !m.argumentsAgainst);
+          return `**${results.length} measures have no opposition statements:**\n\n` +
+            results.map(m => `- ${m.district} ${m.proposition}: ${m.title}`).join('\n');
+        } else {
+          const withOpposition = results.filter(m => m.argumentsAgainst);
+          if (withOpposition.length > 0) {
+            return withOpposition.map(m =>
+              `**${m.district} - ${m.proposition}**\n` +
+              `Opposition from: ${m.argumentsAgainst.submitters}\n` +
+              `${m.argumentsAgainst.text}`
+            ).join('\n\n');
+          }
+        }
+      }
+
+      // Search for arguments in favor
+      if (q.includes('for') || q.includes('support') || q.includes('favor')) {
+        if (results.length > 0) {
+          return results.map(m =>
+            `**${m.district} - ${m.proposition}**\n` +
+            `Support from: ${m.argumentsFor.submitters}\n` +
+            `${m.argumentsFor.text}`
+          ).join('\n\n');
+        }
+      }
+
+      // Tax rates comparison
+      if (q.includes('tax rate') || q.includes('compare')) {
+        const levies = ballotMeasures.filter(m => m.levyDetails?.years);
+        return `**Tax Rates Comparison (2027):**\n\n` +
+          levies.map(m => {
+            const rate = m.levyDetails.years[0]?.rate || 'N/A';
+            return `${m.district} ${m.proposition}: ${rate}`;
+          }).join('\n');
+      }
+
+      // Bond measures
+      if (q.includes('bond')) {
+        results = ballotMeasures.filter(m => m.type === 'Bond');
+        return `**Bond Measures:**\n\n` +
+          results.map(m =>
+            `**${m.district} - ${m.proposition}**\n` +
+            `Amount: ${m.levyDetails.bondAmount}\n` +
+            `Repayment: ${m.levyDetails.repaymentPeriod}\n` +
+            `Requirement: ${m.passageRequirement}`
+          ).join('\n\n');
+      }
+
+      // Default response for matched results
+      if (results.length > 0) {
+        return results.map(m =>
+          `**${m.district} - ${m.proposition}**\n` +
+          `**${m.title}**\n` +
+          `Type: ${m.type}\n` +
+          `Passage: ${m.passageRequirement}\n\n` +
+          `${m.explanatoryStatement.substring(0, 300)}...`
+        ).join('\n\n---\n\n');
+      }
+
+      return `I couldn't find specific information for that query. Try asking about:\n` +
+        `- A specific district (e.g., "What measures are in Issaquah?")\n` +
+        `- Arguments for or against a measure\n` +
+        `- Tax rate comparisons\n` +
+        `- Bond measures\n\n` +
+        `For more detailed responses, add your Anthropic API key.`;
+    }
+
+    // Rotating placeholder text
+    const placeholders = [
+      "Explain how Prop 1 impacts me if my home\u2019s assessed value is $700K.",
+      "How could this measure affect my city or neighborhood over time?",
+      "When would this proposition go into effect if it passes?"
+    ];
+    let placeholderIndex = 0;
+    setInterval(() => {
+      placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+      const input = document.getElementById('userInput');
+      if (input && !input.value) {
+        input.placeholder = placeholders[placeholderIndex];
+      }
+    }, 5000);
+
+    // Tab navigation
+    function showTab(tabId) {
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      // Remove active from all nav tabs
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      // Show selected tab
+      document.getElementById(tabId).classList.add('active');
+      // Mark nav tab as active
+      event.target.classList.add('active');
+    }
+
+    // Inline feedback form handler
+    document.getElementById('feedbackFormInline')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitFeedbackBtnInline');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          this.style.display = 'none';
+          document.getElementById('feedbackSuccessInline').style.display = 'block';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        alert('Error sending feedback. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Feedback';
+      }
+    });
+
+    // Feedback modal functions
+    function openFeedbackModal() {
+      document.getElementById('feedbackModal').classList.remove('hidden');
+      document.getElementById('feedbackFormContainer').style.display = 'block';
+      document.getElementById('feedbackSuccess').style.display = 'none';
+      document.getElementById('feedbackForm').reset();
+    }
+
+    function closeFeedbackModal() {
+      document.getElementById('feedbackModal').classList.add('hidden');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('feedbackModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeFeedbackModal();
+      }
+    });
+
+    // Handle feedback form submission
+    document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('submitFeedbackBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(this);
+
+      try {
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          document.getElementById('feedbackFormContainer').style.display = 'none';
+          document.getElementById('feedbackSuccess').style.display = 'block';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        alert('Error sending feedback. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+      }
+    });
+  </script>
+</body>
+</html>
